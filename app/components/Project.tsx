@@ -1,5 +1,6 @@
 import React from "react";
 import {IProject} from "@/app/projects/types";
+import Image from "next/image";
 
 const Project = ({name, description, link, image}: IProject) => {
     return (
@@ -11,7 +12,7 @@ const Project = ({name, description, link, image}: IProject) => {
             style={{textDecoration: "none"}}
         >
             <div className="relative h-50 w-full">
-                <img
+                <Image
                     src={process.env.NEXT_PUBLIC_API_URL + image}
                     alt={name}
                     className="absolute inset-0 w-full h-full object-cover"

@@ -10,7 +10,7 @@ export default function MePage() {
 
                 <p className="text-lg leading-relaxed mb-6">
                     I was born in June 2007 in eastern Ukraine, into a typical working-class family. My early childhood
-                    was simple but happy - filled with summer trips to the seaside, weekends at our family's garden
+                    was simple but happy - filled with summer trips to the seaside, weekends at our family&#39;s garden
                     plot, and endless hours playing video games with my cousin who was more like a brother to me.
                 </p>
 
@@ -22,7 +22,7 @@ export default function MePage() {
 
                 <p className="text-lg leading-relaxed mb-6">
                     I started teaching myself programming around 2021, first just dabbling in Python before exploring
-                    different areas of tech. While I'm not some coding prodigy, I've come to genuinely enjoy working on
+                    different areas of tech. While I&#39;m not some coding prodigy, I&#39;ve come to genuinely enjoy working on
                     projects, even if progress sometimes feels slow.
                 </p>
 
