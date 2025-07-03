@@ -1,13 +1,19 @@
-import {IGoal} from "@/app/me/goals/types";
-
+import { IGoal } from "@/app/me/goals/types";
 
 export async function getGoals(year: number): Promise<IGoal[]> {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/goals?year=${year}`);
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/goals?year=${year}`, {
+            cache: "no-store", // or adjust to "force-cache" / "reload" if needed
+        });
 
+        if (!res.ok) {
+            console.error("Failed to fetch goals:", res.status);
+            return [];
+        }
 
-    if (!res.ok) {
+        return res.json();
+    } catch (error) {
+        console.error("Error fetching goals:", error);
         return [];
     }
-
-    return res.json();
 }
