@@ -1,103 +1,96 @@
-import Image from "next/image";
+import Link from "next/link";
+import {FaGithub, FaLinkedin, FaCode, FaInstagram, FaUser} from "react-icons/fa";
+import {SiFiverr} from "react-icons/si";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    return (
+        <div className="container max-w-6xl mx-auto md:px-6 text-center">
+            <h1 className="text-4xl font-bold mb-8 text-center ">Hey, I’m Ivan 👋</h1>
+            <p className="text-lg mb-6">
+                A passionate software developer with over <strong>4 years of experience</strong> crafting,
+                optimizing, and automating applications and systems.
+            </p>
+            <p className="mb-4">
+                What started as a hobby quickly turned into my profession. Since then, I’ve built a variety
+                of <Link className='underline' href={'/projects'}>projects</Link> — from desktop tools and mobile apps to web platforms, automation bots, and
+                games.
+            </p>
+            <p className="mb-4">
+                I specialize in <strong>scripting, backend development</strong>, and <strong>system
+                design</strong>, with strong skills in <strong>Python</strong>, <strong>C++</strong>, and
+                modern web technologies. I’m committed to clean, efficient code and delivering reliable,
+                scalable solutions.
+            </p>
+            <p className="mb-8">
+                Beyond development, I enjoy working on projects involving system architecture, data
+                processing, and cloud deployments using Docker, AWS, and Azure.
+            </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <h2 className="text-2xl font-semibold mb-4">Tech Stack & Skills:</h2>
+            <ul className="list-disc list-inside mb-8 space-y-1 ">
+                <li>💻 <strong>Languages:</strong> Python, C++, TypeScript, JavaScript, C#</li>
+                <li>🌐 <strong>Backend:</strong> FastAPI, Django, Node.js</li>
+                <li>🤖 <strong>Automation:</strong> Telegram & Discord bots, Browser Automation Studio</li>
+                <li>🔍 <strong>Web Scraping:</strong> Scrapy, Selenium, BeautifulSoup4</li>
+                <li>🗄️ <strong>Databases:</strong> PostgreSQL, SQLite, Redis</li>
+                <li>🎨 <strong>Frontend (Basics):</strong> React, Next.js, HTML, CSS</li>
+                <li>🛠️ <strong>Tools:</strong> Git, Docker, Pytest, Jest</li>
+                <li>📐 <strong>Concepts:</strong> OOP, TDD, SOLID, clean code, system design</li>
+            </ul>
+
+            <h2 className="text-2xl font-semibold mb-6">Useful Links:</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-sm sm:max-w-xl mx-auto">
+                <a
+                    href="https://github.com/IvanPeshykov"
+                    target="_blank"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-gray-600 max-h-10 text-gray-100 hover:bg-gray-700 hover:text-white transition"
+                >
+                    <FaGithub size={24}/>
+                    <span>GitHub</span>
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/ivanpeshykov"
+                    target="_blank"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-blue-600 max-h-10 text-gray-100 hover:bg-blue-700 hover:text-white transition"
+                >
+                    <FaLinkedin size={24}/>
+                    <span>LinkedIn</span>
+                </a>
+
+                <a
+                    href="https://leetcode.com/your_username"
+                    target="_blank"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-yellow-500 max-h-10 text-gray-100 hover:bg-yellow-600 hover:text-white  transition"
+                >
+                    <FaCode size={24}/>
+                    <span>LeetCode</span>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/your_username"
+                    target="_blank"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-pink-500 max-h-10 text-gray-100 hover:bg-pink-600 hover:text-white transition"
+                >
+                    <FaInstagram size={24}/>
+                    <span>Instagram</span>
+                </a>
+                <a
+                    href="https://www.fiverr.com/ivan00000"
+                    target="_blank"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-green-600 max-h-10 text-gray-100 hover:bg-green-700 hover:text-white transition"
+                >
+                    <SiFiverr size={30}/>
+                    <span>Fiverr</span>
+                </a>
+                <Link
+                    href="/me"
+                    className="flex items-center space-x-2 px-4 py-2 bg-lime-500 text-gray-100 rounded-lg max-h-10 hover:bg-lime-600 hover:text-white transition"
+                >
+                    <FaUser size={20}/>
+                    <span>About Me</span>
+                </Link>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
