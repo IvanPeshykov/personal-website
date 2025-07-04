@@ -12,7 +12,7 @@ const Project = ({name, description, link, image}: IProject) => {
             style={{textDecoration: "none"}}
         >
             <div className="relative h-50 w-full">
-                <Image
+                <img
                     src={image}
                     alt={name}
                     className="absolute inset-0 w-full h-full object-cover"
