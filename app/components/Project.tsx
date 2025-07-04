@@ -13,7 +13,7 @@ const Project = ({name, description, link, image}: IProject) => {
         >
             <div className="relative h-50 w-full">
                 <Image
-                    src={process.env.NEXT_PUBLIC_API_URL + image}
+                    src={image}
                     alt={name}
                     className="absolute inset-0 w-full h-full object-cover"
                 />
