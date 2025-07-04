@@ -1,6 +1,5 @@
 import React from "react";
 import {IProject} from "@/app/projects/types";
-import Image from "next/image";
 
 const Project = ({name, description, link, image}: IProject) => {
     return (
