@@ -50,7 +50,7 @@ export default function Home() {
                 </a>
 
                 <a
-                    href="https://www.linkedin.com/in/ivanpeshykov"
+                    href="https://www.linkedin.com/in/ivan-peshykov/"
                     target="_blank"
                     className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-blue-600 max-h-10 text-gray-100 hover:bg-blue-700 hover:text-white transition"
                 >
