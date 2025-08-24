@@ -1,4 +1,4 @@
-import { IGoal } from "@/app/me/goals/types";
+import { IGoal } from "@/app/lib/types/goals";
 
 export async function getGoals(year: number): Promise<IGoal[]> {
     try {

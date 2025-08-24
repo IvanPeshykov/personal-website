@@ -1,4 +1,4 @@
-import { IProject } from "@/app/projects/types";
+import { IProject } from "@/app/lib/types/projects";
 
 export async function getProjects(): Promise<IProject[]> {
     try {
