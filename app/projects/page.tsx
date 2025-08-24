@@ -1,5 +1,5 @@
 import { getProjects } from '@/app/lib/api/projects';
-import ProjectList from '@/app/projects/ProjectList';
+import ProjectList from '@/app/components/ProjectList';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

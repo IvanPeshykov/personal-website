@@ -1,47 +1,85 @@
 "use client";
 import LinksTable from "@/app/components/LinksTable";
+import RainEffect from "@/app/components/RainEffect";
+import React, {useEffect, useRef, useState} from "react";
+import Sidebar from "@/app/components/Sidebar";
+import StarsBackground from "@/app/components/StarsBackground";
+import AboutMe from "@/app/components/AboutMe";
+import GoalsPage from "@/app/components/GoalsPage";
+import {Pages} from "@/app/lib/types/pages";
+
+const getLS = (key: string, def: boolean) => {
+    if (typeof window === "undefined") return def;
+    const v = localStorage.getItem(key);
+    return v === null ? def : v === "true";
+};
+
 
 export default function MePage() {
 
+
+
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    const [page, setPage] = useState(Pages.ME);
+
+    // State with localStorage persistence
+    const [rainEnabled, setRainEnabled] = useState(() => getLS("rainEnabled", true));
+    const [starsEnabled, setStarsEnabled] = useState(() => getLS("starsEnabled", true));
+    const [thunderEnabled, setThunderEnabled] = useState(() => getLS("thunderEnabled", true));
+    const [isPlaying, setIsPlaying] = useState(() => getLS("isPlaying", true));
+
+    // Load settings from localStorage on mount
+    useEffect(() => { localStorage.setItem("rainEnabled", rainEnabled.toString()); }, [rainEnabled]);
+    useEffect(() => { localStorage.setItem("starsEnabled", starsEnabled.toString()); }, [starsEnabled]);
+    useEffect(() => { localStorage.setItem("thunderEnabled", thunderEnabled.toString()); }, [thunderEnabled]);
+    useEffect(() => { localStorage.setItem("isPlaying", isPlaying.toString()); }, [isPlaying]);
+
+    // Toggle audio
+    const togglePlay = () => {
+        if (!audioRef.current) return;
+
+        if (isPlaying && audioRef.current) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
+    useEffect(() => {
+        if (audioRef.current && rainEnabled && isPlaying) {
+            audioRef.current.loop = true;
+            audioRef.current.volume = 0.1;
+            audioRef.current.play();
+        }
+
+        else if (audioRef.current) {
+            audioRef.current.pause();
+        }
+    }, [isPlaying, rainEnabled]);
+
     return (
-        <div className="max-w-6xl mx-auto px-6 py-16 text-gray-300 flex flex-col items-center gap-12">
-            <div className="lg:w-2/3">
-                <h1 className="text-4xl font-bold mb-6">About me</h1>
-
-                <p className="text-lg leading-relaxed mb-6">
-                    I was born in June 2007 in eastern Ukraine, into a typical working-class family. My early childhood
-                    was simple but happy - filled with summer trips to the seaside, weekends at our family&#39;s garden
-                    plot, and endless hours playing video games with my cousin who was more like a brother to me.
-                </p>
-
-                <p className="text-lg leading-relaxed mb-6">
-                    When conflict came to our region in 2014, our family had to relocate. This began a series of moves
-                    that would become a recurring theme in my life. The hardest moment came in 2018 when I lost my
-                    father, which made me retreat into myself and find comfort in computers and technology.
-                </p>
-
-                <p className="text-lg leading-relaxed mb-6">
-                    I started teaching myself programming around 2021, first just dabbling in Python before exploring
-                    different areas of tech. While I&#39;m not some coding prodigy, I&#39;ve come to genuinely enjoy working on
-                    projects, even if progress sometimes feels slow.
-                </p>
-
-                <p className="text-lg leading-relaxed mb-6">
-                    The full-scale war in 2022 forced another relocation, this time closer to the capital.
-                    I am now 18 and studying abroad while all my family is far away from me.
-                    I like to play video games, program different things, read, play guitar,
-                    ride my bike and just walk around thinking about life.
-                </p>
-
-                <p className="text-lg leading-relaxed mb-6">
-                    My biggest dreams are to become a famous YouTuber,
-                    create my own popular indie game (I even used to make <a
-                    className='text-blue-400 underline hover:text-blue-300 transition-colors'
-                    href='https://ukraineee.itch.io/'>some</a>), and retire my parents.
-                </p>
-
-            </div>
-            <LinksTable/>
+        <div className="max-w-6xl mx-auto px-2 py-16 text-gray-300 flex flex-col items-center gap-12">
+            {page === Pages.ME &&
+            <>
+                <AboutMe/>
+                <LinksTable setPage={setPage}/>
+            </>}
+            {page == Pages.GOALS && <GoalsPage onBack={() => setPage(Pages.ME)}/>}
+            <Sidebar
+                rainEnabled={rainEnabled}
+                starsEnabled={starsEnabled}
+                setThunderEnabled={setThunderEnabled}
+                thunderEnabled={thunderEnabled}
+                setRainEnabled={setRainEnabled}
+                setStarsEnabled={setStarsEnabled}
+                isPlaying={isPlaying}
+                togglePlay={togglePlay}
+            />
+            <StarsBackground starsEnabled={starsEnabled}/>
+            {rainEnabled && <RainEffect dropsCount={40} thunder={thunderEnabled} audioEnabled={isPlaying}/>}
+            <audio ref={audioRef} loop src="./rain.mp3"/>
         </div>
 
     );

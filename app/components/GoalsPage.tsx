@@ -3,10 +3,14 @@ import React, {useEffect, useState} from 'react';
 import {FaBullseye} from "react-icons/fa";
 import YearSelector from "@/app/components/YearSelector";
 import {getGoals} from "@/app/lib/api/goals";
-import {IGoal} from "@/app/me/goals/types";
+import {IGoal} from "@/app/lib/types/goals";
 import Goal from "@/app/components/Goal";
 
-const Page = () => {
+interface IProps {
+    onBack: () => void;
+}
+
+const GoalsPage = ({onBack} : IProps) => {
 
     const [year, setYear] = useState<number>(2025);
     const [goals, setGoals] = useState<IGoal[]>([]);
@@ -26,6 +30,13 @@ const Page = () => {
 
     return (
         <div className="max-w-3xl mx-auto px-6 py-dd116 text-gray-300">
+            <button
+                onClick={onBack}
+
+                className="mb-6 px-4 py-2 text-sm bg-gray-700 rounded hover:bg-gray-600 transition text-white font-semibold cursor-pointer"
+            >
+                ← Back
+            </button>
             <div className='flex justify-between items-start flex-wrap gap-x-12 mb-12'>
                 <h1 className="text-3xl sm:text-4xl font-bold flex items-center space-x-3 mb-8">
                     <FaBullseye className="text-pink-500"/>
@@ -48,4 +59,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default GoalsPage;

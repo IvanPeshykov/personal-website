@@ -1,9 +1,9 @@
 import React from 'react';
-import { IGoal } from '@/app/me/goals/types';
+import { IGoal } from '@/app/lib/types/goals';
 
 const Goal = ({ text, is_completed, not_completed, completed_at }: IGoal) => {
     return (
-        <div className={`bg-gray-800 p-4 rounded-lg shadow-md flex justify-between gap-2 ${is_completed ? 'opacity-60' : ''}`}>
+        <div  style={{backgroundColor: '#2b2c4a'}} className={`p-4 rounded-lg shadow-md flex justify-between gap-2 ${is_completed ? 'opacity-60' : ''}`}>
             <div>
                 <p className="text-gray-400">- {text}</p>
                 {completed_at && (
