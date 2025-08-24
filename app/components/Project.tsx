@@ -1,5 +1,5 @@
 import React from "react";
-import { IProject } from "@/app/projects/types";
+import { IProject } from "@/app/lib/types/projects";
 
 const Project = ({ name, description, link, image }: IProject) => {
     const content = (
