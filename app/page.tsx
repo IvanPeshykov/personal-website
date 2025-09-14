@@ -59,7 +59,7 @@ export default function Home() {
                 </a>
 
                 <a
-                    href="https://leetcode.com/your_username"
+                    href="https://leetcode.com/u/ivan_peshykov/"
                     target="_blank"
                     className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-yellow-500 max-h-10 text-gray-100 hover:bg-yellow-600 hover:text-white  transition"
                 >
@@ -68,7 +68,7 @@ export default function Home() {
                 </a>
 
                 <a
-                    href="https://www.instagram.com/your_username"
+                    href="https://www.instagram.com/ivan_peshykov"
                     target="_blank"
                     className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-pink-500 max-h-10 text-gray-100 hover:bg-pink-600 hover:text-white transition"
                 >
